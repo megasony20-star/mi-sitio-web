@@ -5,8 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Acceso Concedido | Conectando a Internet</title>
 
-  <!-- Redirección de respaldo por HTML (3 segundos) -->
-  <meta http-equiv="refresh" content="3; url=$(link-redirect)">
+  <!-- Redirección de respaldo por HTML (6 segundos) -->
+  <meta http-equiv="refresh" content="6; url=https://chacaltianguis.com">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -54,7 +54,7 @@
       overflow: hidden;
     }
 
-    /* Brillo superior sutil */
+    /* Brillo superior decorativo */
     .card::before {
       content: '';
       position: absolute;
@@ -138,7 +138,7 @@
       color: var(--text);
     }
 
-    /* Barra de progreso de redirección */
+    /* Barra de progreso de 6 segundos */
     .progress-container {
       margin-bottom: 1.5rem;
     }
@@ -157,7 +157,7 @@
       width: 0%;
       background: linear-gradient(90deg, var(--primary), var(--success));
       border-radius: 999px;
-      animation: fillBar 3s cubic-bezier(0.1, 0.5, 0.3, 1) forwards;
+      animation: fillBar 6s linear forwards;
     }
 
     @keyframes fillBar {
@@ -171,7 +171,7 @@
       margin-top: 0.6rem;
     }
 
-    /* Botón manual si el navegador del móvil no salta automáticamente */
+    /* Botón manual directo a chacaltianguis.com */
     .btn-redirect {
       display: inline-flex;
       align-items: center;
@@ -224,15 +224,15 @@
       <div class="wifi-icon">&#10003;</div>
     </div>
 
-    <!-- Indicador de conexión -->
+    <!-- Indicador de conexión activa -->
     <div class="status-badge">
       <span class="status-dot"></span> Conexión Establecida
     </div>
 
     <h1>¡Ya tienes Internet!</h1>
     <p class="desc">
-      Tu dispositivo se ha autenticado con éxito.<br>
-      Sesión iniciada para: <strong id="user-display">$(username)</strong>.
+      Tu dispositivo se ha conectado con éxito.<br>
+      Sesión iniciada para: <strong id="user-display">$(username)</strong>
     </p>
 
     <!-- Barra de progreso -->
@@ -241,13 +241,13 @@
         <div class="progress-fill"></div>
       </div>
       <div class="redirect-msg">
-        Redireccionando a tu página en <strong id="timer">6</strong> segundos...
+        Redireccionando a <strong>chacaltianguis.com</strong> en <strong id="timer">6</strong> segundos...
       </div>
     </div>
 
     <!-- Enlace manual de escape -->
-    <a href="$(link-redirect)" id="manual-btn" class="btn-redirect">
-      Comenzar a navegar ahora &rarr;
+    <a href="https://chacaltianguis.com" id="manual-btn" class="btn-redirect">
+      Ir al portal ahora &rarr;
     </a>
 
     <!-- Metadatos de la sesión -->
@@ -265,25 +265,17 @@
   </div>
 
   <script>
-    // 1. Detección de la URL de destino
-    let target = "$(link-redirect)";
+    // URL de destino fija
+    const targetUrl = "https://chacaltianguis.com";
 
-    // Si estás en pruebas locales o el router no inyectó la variable, usa una web por defecto
-    if (!target || target.startsWith("$(") || target.trim() === "") {
-      target = "https://chacaltianguis.com";
-    }
-
-    const btn = document.getElementById("manual-btn");
-    if (btn) btn.href = target;
-
-    // Normalizar valores si se abre en navegador estándar fuera del router
+    // Reemplazo visual si se abre en pruebas locales fuera del router
     const user = document.getElementById("user-display");
     if (user && user.textContent.startsWith("$(")) user.textContent = "Dispositivo Conectado";
 
     const ip = document.getElementById("ip-display");
     if (ip && ip.textContent.startsWith("$(")) ip.textContent = "192.168.88.X";
 
-    // 2. Conteo regresivo y redirección forzada
+    // Conteo regresivo sincronizado a 6 segundos
     let secondsLeft = 6;
     const timerEl = document.getElementById("timer");
 
@@ -293,7 +285,7 @@
 
       if (secondsLeft <= 0) {
         clearInterval(countdown);
-        window.location.href = target;
+        window.location.href = targetUrl;
       }
     }, 1000);
   </script>
