@@ -21,7 +21,7 @@
 </head>
 <body>
 
-  <!-- 1. Cintillo de Emergencias y Accesos Rápidos -->
+  <!-- 1. Cintillo de Emergencias y Barra de Accesibilidad -->
   <div class="emergency-bar">
     <div class="emergency-content">
       <div class="emergency-phones">
@@ -30,9 +30,19 @@
         <a href="tel:2888860899"><strong>Policía & PC:</strong> (288) 886-0899</a>
         <a href="tel:2888860899"><strong>Palacio:</strong> (288) 886-0899</a>
       </div>
-      <div class="top-shortcuts">
-        <a href="#transparencia">Transparencia</a>
-        <a href="#formatos">Formatos</a>
+
+      <!-- Accesibilidad y Atajos Rápidos -->
+      <div class="accessibility-bar">
+        <div class="font-controls" role="group" aria-label="Ajuste de tamaño de texto">
+          <span class="access-label">Texto:</span>
+          <button id="font-decrease" class="access-btn" title="Disminuir tamaño de letra" aria-label="Disminuir tamaño de letra">A-</button>
+          <button id="font-reset" class="access-btn" title="Restablecer tamaño normal" aria-label="Restablecer tamaño de letra">A</button>
+          <button id="font-increase" class="access-btn" title="Aumentar tamaño de letra" aria-label="Aumentar tamaño de letra">A+</button>
+        </div>
+        <div class="top-shortcuts">
+          <a href="#transparencia">Transparencia</a>
+          <a href="#formatos">Formatos</a>
+        </div>
       </div>
     </div>
   </div>
@@ -61,7 +71,7 @@
   <section id="inicio" class="hero">
     <div class="hero-content">
       <span class="badge">Portal de Gobierno Municipal</span>
-      <h1>Por amor al pueblo, resultados para tu <span class="highlight">Bienestar</span></h1>
+      <h1>Compromiso y cercanía para <span class="highlight">Chacaltianguis</span></h1>
       <p class="subtitle">Trámites en línea, formatos descargables, comunicados oficiales, actas de cabildo y atención directa a la ciudadanía.</p>
       <div class="hero-actions">
         <a href="#tramites" class="btn btn-primary">Trámites y Servicios</a>
