@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Acceso Concedido | Conectando a Internet</title>
+
+  <!-- Redirección de respaldo por HTML (3 segundos) -->
+  <meta http-equiv="refresh" content="3; url=$(link-redirect)">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg: #090d16;
+      --card-bg: #131c2e;
+      --border: #22324d;
+      --success: #10b981;
+      --success-glow: rgba(16, 185, 129, 0.25);
+      --primary: #38bdf8;
+      --text: #f8fafc;
+      --text-muted: #94a3b8;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    }
+
+    body {
+      background-color: var(--bg);
+      color: var(--text);
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 1.25rem;
+    }
+
+    .card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 24px;
+      width: 100%;
+      max-width: 420px;
+      padding: 2.5rem 2rem;
+      text-align: center;
+      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.65);
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* Brillo superior sutil */
+    .card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 15%;
+      right: 15%;
+      height: 2px;
+      background: linear-gradient(90deg, transparent, var(--success), transparent);
+    }
+
+    /* Ícono animado de conexión exitosa */
+    .icon-wrapper {
+      position: relative;
+      width: 86px;
+      height: 86px;
+      margin: 0 auto 1.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      background: var(--success-glow);
+      border: 2px solid var(--success);
+    }
+
+    .pulse-ring {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      border: 2px solid var(--success);
+      animation: pulse 1.8s infinite cubic-bezier(0.25, 1, 0.5, 1);
+    }
+
+    @keyframes pulse {
+      0% { transform: scale(1); opacity: 0.8; }
+      100% { transform: scale(1.45); opacity: 0; }
+    }
+
+    .wifi-icon {
+      font-size: 2.2rem;
+      color: var(--success);
+      line-height: 1;
+    }
+
+    h1 {
+      font-size: 1.5rem;
+      font-weight: 700;
+      margin-bottom: 0.4rem;
+    }
+
+    .status-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      background: rgba(16, 185, 129, 0.15);
+      color: var(--success);
+      padding: 0.35rem 0.85rem;
+      border-radius: 999px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      margin-bottom: 1.25rem;
+      border: 1px solid rgba(16, 185, 129, 0.3);
+    }
+
+    .status-dot {
+      width: 8px;
+      height: 8px;
+      background: var(--success);
+      border-radius: 50%;
+      box-shadow: 0 0 8px var(--success);
+    }
+
+    .desc {
+      color: var(--text-muted);
+      font-size: 0.95rem;
+      line-height: 1.5;
+      margin-bottom: 1.75rem;
+    }
+
+    .desc strong {
+      color: var(--text);
+    }
+
+    /* Barra de progreso de redirección */
+    .progress-container {
+      margin-bottom: 1.5rem;
+    }
+
+    .progress-track {
+      width: 100%;
+      height: 8px;
+      background: rgba(255, 255, 255, 0.06);
+      border-radius: 999px;
+      overflow: hidden;
+      border: 1px solid var(--border);
+    }
+
+    .progress-fill {
+      height: 100%;
+      width: 0%;
+      background: linear-gradient(90deg, var(--primary), var(--success));
+      border-radius: 999px;
+      animation: fillBar 3s cubic-bezier(0.1, 0.5, 0.3, 1) forwards;
+    }
+
+    @keyframes fillBar {
+      0% { width: 0%; }
+      100% { width: 100%; }
+    }
+
+    .redirect-msg {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      margin-top: 0.6rem;
+    }
+
+    /* Botón manual si el navegador del móvil no salta automáticamente */
+    .btn-redirect {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      width: 100%;
+      padding: 0.85rem 1.25rem;
+      background: var(--primary);
+      color: #090d16;
+      border-radius: 12px;
+      text-decoration: none;
+      font-size: 0.95rem;
+      font-weight: 600;
+      transition: all 0.2s ease;
+      border: none;
+    }
+
+    .btn-redirect:hover {
+      background: #0284c7;
+      color: #ffffff;
+      transform: translateY(-1px);
+    }
+
+    .details {
+      margin-top: 1.75rem;
+      padding-top: 1.25rem;
+      border-top: 1px solid var(--border);
+      display: flex;
+      justify-content: space-around;
+      font-size: 0.78rem;
+      color: var(--text-muted);
+    }
+
+    .detail-item span {
+      display: block;
+      color: var(--text);
+      font-weight: 600;
+      font-size: 0.85rem;
+      margin-top: 0.2rem;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="card">
+    
+    <!-- Ícono animado de confirmación -->
+    <div class="icon-wrapper">
+      <div class="pulse-ring"></div>
+      <div class="wifi-icon">&#10003;</div>
+    </div>
+
+    <!-- Indicador de conexión -->
+    <div class="status-badge">
+      <span class="status-dot"></span> Conexión Establecida
+    </div>
+
+    <h1>¡Ya tienes Internet!</h1>
+    <p class="desc">
+      Tu dispositivo se ha autenticado con éxito.<br>
+      Sesión iniciada para: <strong id="user-display">$(username)</strong>.
+    </p>
+
+    <!-- Barra de progreso -->
+    <div class="progress-container">
+      <div class="progress-track">
+        <div class="progress-fill"></div>
+      </div>
+      <div class="redirect-msg">
+        Redireccionando a tu página en <strong id="timer">3</strong> segundos...
+      </div>
+    </div>
+
+    <!-- Enlace manual de escape -->
+    <a href="$(link-redirect)" id="manual-btn" class="btn-redirect">
+      Comenzar a navegar ahora &rarr;
+    </a>
+
+    <!-- Metadatos de la sesión -->
+    <div class="details">
+      <div class="detail-item">
+        IP Asignada
+        <span id="ip-display">$(ip)</span>
+      </div>
+      <div class="detail-item">
+        Estado
+        <span style="color: var(--success);">Habilitado</span>
+      </div>
+    </div>
+
+  </div>
+
+  <script>
+    // 1. Detección de la URL de destino
+    let target = "$(link-redirect)";
+
+    // Si estás en pruebas locales o el router no inyectó la variable, usa una web por defecto
+    if (!target || target.startsWith("$(") || target.trim() === "") {
+      target = "https://www.google.com";
+    }
+
+    const btn = document.getElementById("manual-btn");
+    if (btn) btn.href = target;
+
+    // Normalizar valores si se abre en navegador estándar fuera del router
+    const user = document.getElementById("user-display");
+    if (user && user.textContent.startsWith("$(")) user.textContent = "Dispositivo Conectado";
+
+    const ip = document.getElementById("ip-display");
+    if (ip && ip.textContent.startsWith("$(")) ip.textContent = "192.168.88.X";
+
+    // 2. Conteo regresivo y redirección forzada
+    let secondsLeft = 3;
+    const timerEl = document.getElementById("timer");
+
+    const countdown = setInterval(() => {
+      secondsLeft--;
+      if (timerEl) timerEl.textContent = secondsLeft;
+
+      if (secondsLeft <= 0) {
+        clearInterval(countdown);
+        window.location.href = target;
+      }
+    }, 1000);
+  </script>
+
+</body>
+</html>
