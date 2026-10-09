@@ -34,7 +34,59 @@ if (themeToggleBtn) {
 }
 
 // ==========================================
-// 2. FORMULARIO DE ATENCIÓN Y REPORTE CIUDADANO (AJAX / FETCH)
+// 2. BARRA DE ACCESIBILIDAD: TAMAÑO DE TEXTO
+// ==========================================
+const fontLevels = ['font-sm', 'font-md', 'font-lg', 'font-xl'];
+let currentFontIndex = 1; // 1 corresponde a 'font-md' (estándar 100%)
+
+// Recuperar nivel guardado previamente
+const savedFontLevel = localStorage.getItem('fontSizeLevel');
+if (savedFontLevel && fontLevels.includes(savedFontLevel)) {
+  currentFontIndex = fontLevels.indexOf(savedFontLevel);
+  applyFontSize(fontLevels[currentFontIndex]);
+}
+
+function applyFontSize(levelClass) {
+  // Remover clases previas del <html>
+  fontLevels.forEach(cls => document.documentElement.classList.remove(cls));
+  // Aplicar la nueva clase
+  document.documentElement.classList.add(levelClass);
+  localStorage.setItem('fontSizeLevel', levelClass);
+}
+
+// Botón A- (Disminuir tamaño)
+const btnDecrease = document.getElementById('font-decrease');
+if (btnDecrease) {
+  btnDecrease.addEventListener('click', () => {
+    if (currentFontIndex > 0) {
+      currentFontIndex--;
+      applyFontSize(fontLevels[currentFontIndex]);
+    }
+  });
+}
+
+// Botón A (Restablecer tamaño normal)
+const btnReset = document.getElementById('font-reset');
+if (btnReset) {
+  btnReset.addEventListener('click', () => {
+    currentFontIndex = 1; // font-md
+    applyFontSize(fontLevels[currentFontIndex]);
+  });
+}
+
+// Botón A+ (Aumentar tamaño)
+const btnIncrease = document.getElementById('font-increase');
+if (btnIncrease) {
+  btnIncrease.addEventListener('click', () => {
+    if (currentFontIndex < fontLevels.length - 1) {
+      currentFontIndex++;
+      applyFontSize(fontLevels[currentFontIndex]);
+    }
+  });
+}
+
+// ==========================================
+// 3. FORMULARIO DE ATENCIÓN Y REPORTE CIUDADANO (AJAX / FETCH)
 // ==========================================
 const contactForm = document.getElementById('contact-form');
 const formStatus = document.getElementById('form-status');
