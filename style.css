@@ -34,6 +34,24 @@ body.light-mode {
 
 html {
   scroll-behavior: smooth;
+  font-size: 100%; /* Base 16px */
+}
+
+/* Escalas de Accesibilidad Tipográfica aplicadas a <html> */
+html.font-sm {
+  font-size: 87.5%; /* Aprox. 14px */
+}
+
+html.font-md {
+  font-size: 100%; /* Estándar 16px */
+}
+
+html.font-lg {
+  font-size: 115%; /* Aprox. 18.5px */
+}
+
+html.font-xl {
+  font-size: 130%; /* Aprox. 20.8px */
 }
 
 body {
@@ -44,7 +62,7 @@ body {
   transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-/* 1. Cintillo Superior de Emergencias */
+/* 1. Cintillo Superior de Emergencias y Accesibilidad */
 .emergency-bar {
   background-color: #070b14;
   border-bottom: 1px solid var(--border);
@@ -84,6 +102,52 @@ body.light-mode .emergency-bar {
 
 .emergency-phones a:hover {
   color: var(--primary);
+}
+
+/* Controles de Accesibilidad */
+.accessibility-bar {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.font-controls {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  background: rgba(255, 255, 255, 0.05);
+  padding: 0.15rem 0.4rem;
+  border-radius: 6px;
+  border: 1px solid var(--border);
+}
+
+body.light-mode .font-controls {
+  background: rgba(0, 0, 0, 0.05);
+}
+
+.access-label {
+  font-size: 0.72rem;
+  color: var(--text-muted);
+  margin-right: 0.2rem;
+}
+
+.access-btn {
+  background: var(--bg-card);
+  color: var(--text-main);
+  border: 1px solid var(--border);
+  padding: 0.15rem 0.45rem;
+  font-size: 0.75rem;
+  font-weight: 700;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  line-height: 1.2;
+}
+
+.access-btn:hover {
+  background: var(--primary);
+  color: #0b111e;
+  border-color: var(--primary);
 }
 
 .top-shortcuts a {
@@ -694,63 +758,4 @@ body.light-mode footer {
   right: 24px;
   background-color: #25d366;
   color: #ffffff;
-  padding: 0.75rem 1.1rem;
-  border-radius: 999px;
-  text-decoration: none;
-  font-weight: 600;
-  font-size: 0.88rem;
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.35);
-  z-index: 100;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-}
-
-.whatsapp-float:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 12px 20px rgba(37, 211, 102, 0.4);
-}
-
-.wa-icon {
-  font-size: 1.2rem;
-}
-
-/* 13. Adaptación Móvil / Responsive */
-@media (max-width: 768px) {
-  .hero h1 {
-    font-size: 2rem;
-  }
-  .navbar nav {
-    gap: 0.5rem;
-  }
-  .emergency-content {
-    flex-direction: column;
-    text-align: center;
-  }
-  .form-grid-2 {
-    grid-template-columns: 1fr;
-  }
-  .footer-content {
-    grid-template-columns: 1fr;
-  }
-  .doc-item {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-  .doc-actions {
-    width: 100%;
-    margin-top: 0.75rem;
-  }
-  .btn-download {
-    width: 100%;
-    text-align: center;
-  }
-  .wa-text {
-    display: none;
-  }
-  .whatsapp-float {
-    padding: 0.85rem;
-    border-radius: 50%;
-  }
-}
+  padding: 0.75rem
