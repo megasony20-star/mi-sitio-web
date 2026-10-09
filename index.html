@@ -3,7 +3,17 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>H. Ayuntamiento Municipal | Portal Oficial</title>
+  <title>H. Ayuntamiento de Chacaltianguis | Portal Oficial</title>
+
+  <!-- Metadatos SEO y Redes Sociales (Open Graph & Twitter) -->
+  <meta name="description" content="Portal Oficial del H. Ayuntamiento de Chacaltianguis, Veracruz. Trámites, gacetas, transparencia, cabildo y atención ciudadana." />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="H. Ayuntamiento de Chacaltianguis - Portal Oficial" />
+  <meta property="og:description" content="Trámites, gacetas, transparencia y atención ciudadana del Gobierno Municipal." />
+  <meta property="og:url" content="https://chacaltianguis.com/" />
+  <meta property="og:image" content="https://chacaltianguis.com/escudo.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+
   <link rel="stylesheet" href="style.css" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -11,13 +21,18 @@
 </head>
 <body>
 
-  <!-- Cintillo Institucional Superior -->
-  <div class="topbar">
-    <div class="topbar-content">
-      <span>Portal Oficial del H. Ayuntamiento Constitucional</span>
-      <div class="topbar-links">
+  <!-- 1. Cintillo de Emergencias y Enlaces Rápidos -->
+  <div class="emergency-bar">
+    <div class="emergency-content">
+      <div class="emergency-phones">
+        <span class="badge-alert">🚨 EMERGENCIAS:</span>
+        <a href="tel:911"><strong>911</strong> Nacional</a>
+        <a href="tel:2888860899"><strong>Policía & PC:</strong> (288) 886-0899</a>
+        <a href="tel:2888860899"><strong>Palacio:</strong> (288) 886-0899</a>
+      </div>
+      <div class="top-shortcuts">
         <a href="#transparencia">Transparencia</a>
-        <a href="#contacto">Atención Ciudadana</a>
+        <a href="#gaceta">Gaceta</a>
       </div>
     </div>
   </div>
@@ -27,16 +42,17 @@
     <div class="logo">
       <span class="logo-shield">🏛️</span>
       <div class="logo-text">
-        <strong>GOBIERNO MUNICIPAL</strong>
-        <small>Administración 2025 - 2028</small>
+        <strong>CHACALTIANGUIS</strong>
+        <small>H. Ayuntamiento Constitucional</small>
       </div>
     </div>
     <nav>
       <a href="#inicio">Inicio</a>
       <a href="#tramites">Trámites</a>
-      <a href="#noticias">Noticias</a>
-      <a href="#transparencia">Transparencia</a>
-      <a href="#contacto" class="btn-nav">Atención Ciudadana</a>
+      <a href="#cabildo">Cabildo</a>
+      <a href="#gaceta">Gaceta</a>
+      <a href="#ubicacion">Ubicación</a>
+      <a href="#contacto" class="btn-nav">Atención</a>
       <button id="theme-toggle" class="theme-btn" aria-label="Cambiar tema">☀️</button>
     </nav>
   </header>
@@ -44,113 +60,149 @@
   <!-- Hero / Banner Principal -->
   <section id="inicio" class="hero">
     <div class="hero-content">
-      <span class="badge">Atención y Compromiso Social</span>
-      <h1>Trabajando por el bienestar de <span class="highlight">nuestro municipio</span></h1>
-      <p class="subtitle">Consulta trámites, servicios públicos, avisos oficiales y proyectos para el desarrollo de nuestra comunidad de forma transparente.</p>
+      <span class="badge">Portal de Gobierno Municipal</span>
+      <h1>Compromiso y cercanía para <span class="highlight">Chacaltianguis</span></h1>
+      <p class="subtitle">Trámites en línea, comunicados oficiales, actas de cabildo y atención directa a la ciudadanía del municipio.</p>
       <div class="hero-actions">
-        <a href="#tramites" class="btn btn-primary">Trámites en línea</a>
+        <a href="#tramites" class="btn btn-primary">Trámites y Servicios</a>
         <a href="#contacto" class="btn btn-secondary">Reporte Ciudadano</a>
       </div>
     </div>
   </section>
 
-  <!-- Sección de Trámites y Servicios -->
+  <!-- Trámites y Servicios -->
   <section id="tramites" class="section">
     <div class="section-title">
-      <h2>Trámites y Servicios Frecuentes</h2>
-      <p>Acceso rápido a las gestiones municipales más solicitadas.</p>
+      <h2>Trámites y Gestiones</h2>
+      <p>Servicios municipales de mayor demanda ciudadana.</p>
     </div>
     <div class="grid-cards">
       <article class="card">
         <div class="card-icon">📄</div>
         <div class="card-tag">Tesorería</div>
         <h3>Pago de Predial</h3>
-        <p>Consulta requisitos, descuentos por pronto pago y módulos disponibles para tu contribución municipal.</p>
-        <div class="card-links">
-          <a href="#" class="card-link">Requisitos y módulos &rarr;</a>
-        </div>
+        <p>Consulta de pagos, descuentos de inicio de año para jubilados y módulos en bajos del palacio.</p>
+        <a href="#contacto" class="card-link">Informes &rarr;</a>
       </article>
 
       <article class="card">
         <div class="card-icon">📜</div>
         <div class="card-tag">Registro Civil</div>
-        <h3>Actas y Certificaciones</h3>
-        <p>Expedición de copias certificadas de nacimiento, matrimonio, constancias de radicación y asesorías.</p>
-        <div class="card-links">
-          <a href="#" class="card-link">Consultar requisitos &rarr;</a>
-        </div>
+        <h3>Actas y Registros</h3>
+        <p>Copias certificadas de nacimiento, matrimonios y constancias de radicación municipal.</p>
+        <a href="#contacto" class="card-link">Requisitos &rarr;</a>
       </article>
 
       <article class="card">
         <div class="card-icon">🏗️</div>
         <div class="card-tag">Obras Públicas</div>
         <h3>Licencias de Construcción</h3>
-        <p>Permisos de uso de suelo, remodelaciones, constancias de número oficial y regularización urbana.</p>
-        <div class="card-links">
-          <a href="#" class="card-link">Guía de tramitación &rarr;</a>
-        </div>
+        <p>Alineamiento, número oficial, regularización de predios y permisos de uso de suelo.</p>
+        <a href="#contacto" class="card-link">Guía de trámite &rarr;</a>
       </article>
 
       <article class="card">
-        <div class="card-icon">🚜</div>
-        <div class="card-tag">Desarrollo Social</div>
-        <h3>Programas Municipales</h3>
-        <p>Convocatorias de apoyo al campo, desarrollo familiar, talleres comunitarios y becas locales.</p>
-        <div class="card-links">
-          <a href="#" class="card-link">Ver convocatorias &rarr;</a>
-        </div>
+        <div class="card-icon">🌾</div>
+        <div class="card-tag">Fomento Agropecuario</div>
+        <h3>Apoyo al Campo</h3>
+        <p>Programas de fomento agrícola, ganadero y vinculación con programas del bienestar.</p>
+        <a href="#contacto" class="card-link">Convocatorias &rarr;</a>
       </article>
     </div>
   </section>
 
-  <!-- Sección de Noticias / Avisos -->
-  <section id="noticias" class="section bg-alt">
+  <!-- Cabildo Municipal -->
+  <section id="cabildo" class="section bg-alt">
     <div class="section-title">
-      <h2>Avisos y Comunicados Oficiales</h2>
-      <p>Mantente informado sobre los acontecimientos y avisos de interés público.</p>
+      <h2>Cabildo Municipal</h2>
+      <p>Representantes del H. Ayuntamiento Constitucional de Chacaltianguis.</p>
     </div>
-    <div class="news-grid">
-      <article class="news-card">
-        <span class="news-date">Aviso Importante</span>
-        <h3>Campaña de Actualización y Descuentos en Predial</h3>
-        <p>Aprovecha los descuentos para pensionados, jubilados y contribuyentes al corriente durante este mes.</p>
-      </article>
+    <div class="cabildo-grid">
+      <div class="cabildo-card">
+        <div class="avatar-ph">👤</div>
+        <h3>Lic. Akciel Jamir Torrecilla Torrecilla</h3>
+        <span class="cargo">Presidente Municipal</span>
+        <p>Coordinación ejecutiva, desarrollo municipal y gestión interinstitucional.</p>
+      </div>
 
-      <article class="news-card">
-        <span class="news-date">Servicios Públicos</span>
-        <h3>Mantenimiento y Bacheo en Avenidas Principales</h3>
-        <p>Conoce las rutas alternas y los cuadrantes donde el personal municipal estará realizando labores viales.</p>
-      </article>
+      <div class="cabildo-card">
+        <div class="avatar-ph">👤</div>
+        <h3>María Isabel Mora Medina</h3>
+        <span class="cargo">Síndica Única</span>
+        <p>Representación legal del municipio y vigilancia de la hacienda municipal.</p>
+      </div>
 
-      <article class="news-card">
-        <span class="news-date">Salud y Prevención</span>
-        <h3>Jornada de Fumigación y Descacharrización</h3>
-        <p>Coordinación interinstitucional para prevenir enfermedades transmitidas por vectores en colonias y localidades.</p>
-      </article>
+      <div class="cabildo-card">
+        <div class="avatar-ph">👤</div>
+        <h3>Dora Lina Pérez Juárez</h3>
+        <span class="cargo">Regidora Única</span>
+        <p>Comisiones edilicias, supervisión de servicios públicos y participación ciudadana.</p>
+      </div>
     </div>
   </section>
 
-  <!-- Transparencia y Rendición de Cuentas -->
-  <section id="transparencia" class="section">
+  <!-- Gaceta Municipal y Documentos PDF -->
+  <section id="gaceta" class="section">
+    <div class="section-title">
+      <h2>Gaceta Municipal y Documentación</h2>
+      <p>Archivos, reglamentos y actas de libre descarga en formato PDF.</p>
+    </div>
+    <div class="doc-list">
+      <div class="doc-item">
+        <div class="doc-info">
+          <span class="doc-badge">PDF</span>
+          <div>
+            <strong>Bando de Policía y Buen Gobierno</strong>
+            <small>Normativa cívica y reglamentación interna del municipio</small>
+          </div>
+        </div>
+        <a href="documentos/bando-gobierno.pdf" download class="btn-download">Descargar 📥</a>
+      </div>
+
+      <div class="doc-item">
+        <div class="doc-info">
+          <span class="doc-badge">PDF</span>
+          <div>
+            <strong>Ley de Ingresos y Presupuesto de Egresos</strong>
+            <small>Transparencia presupuestaria y asignación de recursos</small>
+          </div>
+        </div>
+        <a href="documentos/presupuesto-anual.pdf" download class="btn-download">Descargar 📥</a>
+      </div>
+
+      <div class="doc-item">
+        <div class="doc-info">
+          <span class="doc-badge">PDF</span>
+          <div>
+            <strong>Acta de Cabildo - Sesión Ordinaria Reciente</strong>
+            <small>Acuerdos edilicios y aprobaciones en sesión pública</small>
+          </div>
+        </div>
+        <a href="documentos/acta-cabildo.pdf" download class="btn-download">Descargar 📥</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Transparencia -->
+  <section id="transparencia" class="section bg-alt">
     <div class="transparency-banner">
       <div>
-        <h2>Transparencia y Acceso a la Información</h2>
-        <p>Cumplimiento de obligaciones, estados financieros, actas de cabildo y normatividad municipal.</p>
+        <h2>Portal de Transparencia Municipal</h2>
+        <p>Acceso a la información pública, estados contables y cumplimiento de la Ley 875 de Transparencia de Veracruz.</p>
       </div>
       <div class="transparency-actions">
-        <a href="#" class="btn btn-secondary">Plataforma de Transparencia</a>
-        <a href="#" class="btn btn-secondary">Actas de Cabildo</a>
+        <a href="https://consultapublicamx.inai.org.mx/" target="_blank" class="btn btn-primary">Plataforma PNT</a>
+        <a href="#contacto" class="btn btn-secondary">Unidad de Acceso</a>
       </div>
     </div>
   </section>
 
-  <!-- Formulario de Atención y Reporte Ciudadano -->
-  <section id="contacto" class="section bg-alt">
+  <!-- Formulario de Atención Ciudadana -->
+  <section id="contacto" class="section">
     <div class="contact-box">
-      <h2>Ventanilla de Atención y Quejas Ciudadanas</h2>
-      <p>Envía reportes sobre alumbrado, recolección de basura, bacheo o solicitudes de información.</p>
+      <h2>Ventanilla de Atención y Reportes</h2>
+      <p>Envía reportes sobre alumbrado, caminos, bacheo o solicitudes para la administración.</p>
 
-      <!-- Reemplaza TU_ID_DE_FORMSPREE con tu endpoint de Formspree -->
       <form id="contact-form" action="https://formspree.io/f/TU_ID_DE_FORMSPREE" method="POST" class="contact-form">
         <div class="form-group">
           <label for="name">Nombre Completo</label>
@@ -163,56 +215,87 @@
             <input type="email" id="email" name="email" placeholder="correo@ejemplo.com" required autocomplete="email" />
           </div>
           <div class="form-group">
-            <label for="phone">Teléfono de Contacto</label>
-            <input type="tel" id="phone" name="phone" placeholder="Ej. 2291234567" required />
+            <label for="phone">Teléfono / Celular</label>
+            <input type="tel" id="phone" name="phone" placeholder="Ej. 2881234567" required />
           </div>
         </div>
 
         <div class="form-group">
-          <label for="area">Departamento o Tipo de Solicitud</label>
+          <label for="area">Área a Canalizar</label>
           <select id="area" name="area" class="form-select" required>
-            <option value="" disabled selected>Selecciona un área...</option>
-            <option value="Servicios Publicos">Servicios Públicos (Alumbrado / Basura)</option>
-            <option value="Obras Publicas">Obras Públicas / Bacheo</option>
-            <option value="Agua Potable">Agua Potable y Drenaje</option>
-            <option value="Seguridad y Transito">Seguridad y Tránsito Municipal</option>
-            <option value="DIF / Apoyo Social">DIF y Programas Sociales</option>
-            <option value="Atencion General">Atención y Queja General</option>
+            <option value="" disabled selected>Selecciona una opción...</option>
+            <option value="Servicios Municipales">Alumbrado y Servicios Generales</option>
+            <option value="Obras y Mantenimiento">Obras Públicas y Caminos</option>
+            <option value="Seguridad y Protección Civil">Seguridad y Protección Civil</option>
+            <option value="DIF Municipal">DIF y Asistencia Social</option>
+            <option value="Presidencia">Atención a Presidencia</option>
           </select>
         </div>
 
         <div class="form-group">
-          <label for="message">Descripción detallada y ubicación</label>
-          <textarea id="message" name="message" rows="4" placeholder="Describe tu solicitud, incluyendo calle, colonia y referencias..." required></textarea>
+          <label for="message">Detalles del Reporte o Trámite</label>
+          <textarea id="message" name="message" rows="4" placeholder="Indica ubicación precisa (calle, referencia o congregación)..." required></textarea>
         </div>
 
-        <button type="submit" id="form-submit-btn" class="btn btn-primary btn-block">Enviar Reporte Ciudadano</button>
+        <button type="submit" id="form-submit-btn" class="btn btn-primary btn-block">Enviar Reporte</button>
         <div id="form-status" class="form-status" role="alert"></div>
       </form>
     </div>
   </section>
 
-  <!-- Pie de Página Institucional -->
+  <!-- Ubicación y Google Maps -->
+  <section id="ubicacion" class="section bg-alt">
+    <div class="section-title">
+      <h2>Palacio Municipal</h2>
+      <p>Av. Porfirio Díaz s/n, Colonia Centro, C.P. 95560, Chacaltianguis, Veracruz.</p>
+    </div>
+    <div class="map-container">
+      <iframe 
+        title="Ubicación Palacio Municipal Chacaltianguis"
+        src="https://maps.google.com/maps?q=Palacio+Municipal+Chacaltianguis+Veracruz&t=&z=15&ie=UTF8&iwloc=&output=embed" 
+        width="100%" 
+        height="360" 
+        style="border:0; border-radius: 14px;" 
+        allowfullscreen="" 
+        loading="lazy" 
+        referrerpolicy="no-referrer-when-downgrade">
+      </iframe>
+    </div>
+  </section>
+
+  <!-- Pie de Página Oficial -->
   <footer>
     <div class="footer-content">
       <div>
-        <h4>H. Ayuntamiento Municipal</h4>
-        <p>Palacio Municipal, Centro. Horario: Lunes a Viernes de 8:00 a 15:00 hrs.</p>
-        <p>Teléfono de Presidencia: (000) 000-0000</p>
+        <h4>H. Ayuntamiento de Chacaltianguis</h4>
+        <p>Av. Porfirio Díaz s/n, Zona Centro, Chacaltianguis, Ver.</p>
+        <p>Horario de atención: Lunes a Viernes de 8:00 a 15:00 hrs.</p>
+        <p>Teléfono: (288) 886-0899</p>
       </div>
       <div>
-        <h4>Enlaces de Interés</h4>
+        <h4>Enlaces de Utilidad</h4>
         <ul class="footer-links">
           <li><a href="#transparencia">Portal de Obligaciones de Transparencia</a></li>
-          <li><a href="#tramites">Gaceta Municipal</a></li>
-          <li><a href="#contacto">Buzón Ciudadano</a></li>
+          <li><a href="#gaceta">Descargas de Gaceta Oficial</a></li>
+          <li><a href="#cabildo">Directorio Edilicio</a></li>
         </ul>
       </div>
     </div>
     <div class="footer-bottom">
-      <p>&copy; 2026 H. Ayuntamiento Municipal. Portal Ciudadano de Libre Acceso.</p>
+      <p>&copy; 2026 H. Ayuntamiento de Chacaltianguis, Veracruz. Portal Ciudadano.</p>
     </div>
   </footer>
+
+  <!-- Botón Flotante de WhatsApp para Atención Ciudadana -->
+  <a 
+    href="https://wa.me/522888860899?text=Hola,%20quisiera%20hacer%20una%20consulta%20o%20reporte%20al%20Ayuntamiento%20de%20Chacaltianguis" 
+    class="whatsapp-float" 
+    target="_blank" 
+    rel="noopener noreferrer" 
+    aria-label="Contactar por WhatsApp">
+    <span class="wa-icon">💬</span>
+    <span class="wa-text">Atención Ciudadana</span>
+  </a>
 
   <script src="script.js"></script>
 </body>
