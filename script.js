@@ -1,7 +1,5 @@
-// --- 1. Modo Oscuro / Modo Claro ---
+// --- 1. Modo Oscuro / Claro Institucional ---
 const themeToggleBtn = document.getElementById('theme-toggle');
-
-// Leer preferencia guardada del navegador
 const savedTheme = localStorage.getItem('theme');
 
 if (savedTheme === 'light') {
@@ -11,10 +9,8 @@ if (savedTheme === 'light') {
   themeToggleBtn.textContent = '☀️';
 }
 
-// Evento al dar clic al botón de tema
 themeToggleBtn.addEventListener('click', () => {
   document.body.classList.toggle('light-mode');
-
   const isLight = document.body.classList.contains('light-mode');
 
   if (isLight) {
@@ -26,7 +22,7 @@ themeToggleBtn.addEventListener('click', () => {
   }
 });
 
-// --- 2. Formulario de contacto con AJAX / Fetch ---
+// --- 2. Formulario de Atención Ciudadana (AJAX / Fetch) ---
 const contactForm = document.getElementById('contact-form');
 const formStatus = document.getElementById('form-status');
 const submitBtn = document.getElementById('form-submit-btn');
@@ -37,7 +33,7 @@ if (contactForm) {
     const data = new FormData(contactForm);
 
     submitBtn.disabled = true;
-    submitBtn.textContent = 'Enviando...';
+    submitBtn.textContent = 'Enviando reporte...';
     formStatus.textContent = '';
     formStatus.className = 'form-status';
 
@@ -45,28 +41,26 @@ if (contactForm) {
       const response = await fetch(contactForm.action, {
         method: contactForm.method,
         body: data,
-        headers: {
-          'Accept': 'application/json'
-        }
+        headers: { 'Accept': 'application/json' }
       });
 
       if (response.ok) {
-        formStatus.textContent = '¡Mensaje enviado con éxito! Te responderé pronto.';
+        formStatus.textContent = '¡Reporte recibido con éxito! La dirección correspondiente dará seguimiento.';
         formStatus.classList.add('success');
         contactForm.reset();
       } else {
         const errorData = await response.json();
         formStatus.textContent = errorData.errors 
           ? errorData.errors.map(err => err.message).join(', ') 
-          : 'Ocurrió un error al enviar el mensaje.';
+          : 'Ocurrió un error al enviar el formulario.';
         formStatus.classList.add('error');
       }
     } catch (error) {
-      formStatus.textContent = 'Error de conexión. Intenta de nuevo más tarde.';
+      formStatus.textContent = 'Error de conexión. Intente comunicarse vía telefónica.';
       formStatus.classList.add('error');
     } finally {
       submitBtn.disabled = false;
-      submitBtn.textContent = 'Enviar Mensaje';
+      submitBtn.textContent = 'Enviar Reporte Ciudadano';
     }
   });
 }
