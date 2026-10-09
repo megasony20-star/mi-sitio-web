@@ -1,10 +1,106 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <title>Mi Sitio Web</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mi Portafolio | Perfil Profesional</title>
+  <link rel="stylesheet" href="style.css" />
+  <!-- Tipografía moderna desde Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet" />
 </head>
 <body>
-  <h1>¡Hola, mundo! Mi web está funcionando en GitHub Pages.</h1>
+
+  <!-- Navegación -->
+  <header class="navbar">
+    <div class="logo">MiPortafolio<span>.</span></div>
+    <nav>
+      <a href="#inicio">Inicio</a>
+      <a href="#proyectos">Proyectos</a>
+      <a href="#habilidades">Habilidades</a>
+      <a href="#contacto" class="btn-nav">Contacto</a>
+    </nav>
+  </header>
+
+  <!-- Hero / Presentación -->
+  <section id="inicio" class="hero">
+    <div class="hero-content">
+      <span class="badge">Disponible para proyectos</span>
+      <h1>Hola, soy <span class="highlight">Tu Nombre</span></h1>
+      <p class="subtitle">Especialista en desarrollo web, administración de sistemas y redes. Transformo requerimientos técnicos en soluciones prácticas y eficientes.</p>
+      <div class="hero-actions">
+        <a href="#proyectos" class="btn btn-primary">Ver proyectos</a>
+        <a href="#contacto" class="btn btn-secondary">Escríbeme</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Proyectos -->
+  <section id="proyectos" class="section">
+    <div class="section-title">
+      <h2>Proyectos Recientes</h2>
+      <p>Una muestra de desarrollos, herramientas e implementaciones.</p>
+    </div>
+    <div class="grid-cards">
+      <article class="card">
+        <div class="card-tag">Python & Networking</div>
+        <h3>Panel de Gestión de Redes</h3>
+        <p>Sistema web administrativo para control de ancho de banda, autenticación de clientes y monitoreo de enlaces.</p>
+        <div class="card-links">
+          <a href="#" class="card-link">Ver repositorio &rarr;</a>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="card-tag">Infraestructura & Soporte</div>
+        <h3>Diagnóstico y Mantenimiento TI</h3>
+        <p>Implementación de auditorías técnicas, recuperación de sistemas operativos y configuración de puntos de acceso.</p>
+        <div class="card-links">
+          <a href="#" class="card-link">Ver detalles &rarr;</a>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="card-tag">Frontend</div>
+        <h3>Landing Page de Servicios</h3>
+        <p>Diseño web responsivo con tiempos de carga optimizados y publicado directamente en GitHub Pages.</p>
+        <div class="card-links">
+          <a href="#" class="card-link">Ver demo en vivo &rarr;</a>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <!-- Habilidades -->
+  <section id="habilidades" class="section bg-alt">
+    <div class="section-title">
+      <h2>Habilidades Técnicas</h2>
+      <p>Herramientas y tecnologías que manejo cotidianamente.</p>
+    </div>
+    <div class="skills-grid">
+      <div class="skill-pill">HTML5 & CSS3</div>
+      <div class="skill-pill">JavaScript</div>
+      <div class="skill-pill">Python</div>
+      <div class="skill-pill">Git & GitHub</div>
+      <div class="skill-pill">Soporte y Hardware</div>
+      <div class="skill-pill">Redes y Routers</div>
+    </div>
+  </section>
+
+  <!-- Contacto -->
+  <section id="contacto" class="section">
+    <div class="contact-box">
+      <h2>¿Tienes un proyecto en mente?</h2>
+      <p>Ponte en contacto para platicar sobre colaboraciones o servicios técnicos.</p>
+      <a href="mailto:tuemail@ejemplo.com" class="btn btn-primary">tuemail@ejemplo.com</a>
+    </div>
+  </section>
+
+  <!-- Pie de página -->
+  <footer>
+    <p>&copy; 2026 Tu Nombre. Todos los derechos reservados. Alojado en GitHub Pages.</p>
+  </footer>
+
 </body>
 </html>
