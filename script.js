@@ -1,7 +1,8 @@
-// --- 1. Control de Modo Oscuro / Modo Claro ---
+// --- 1. Modo Oscuro / Modo Claro con Persistencia en localStorage ---
 const themeToggleBtn = document.getElementById('theme-toggle');
 const savedTheme = localStorage.getItem('theme');
 
+// Comprobar estado previo guardado
 if (savedTheme === 'light') {
   document.body.classList.add('light-mode');
   themeToggleBtn.textContent = '🌙';
@@ -22,7 +23,7 @@ themeToggleBtn.addEventListener('click', () => {
   }
 });
 
-// --- 2. Envío Asíncrono del Reporte Ciudadano (Formspree) ---
+// --- 2. Manejo Asíncrono del Reporte Ciudadano (Formspree AJAX) ---
 const contactForm = document.getElementById('contact-form');
 const formStatus = document.getElementById('form-status');
 const submitBtn = document.getElementById('form-submit-btn');
@@ -45,7 +46,7 @@ if (contactForm) {
       });
 
       if (response.ok) {
-        formStatus.textContent = '¡Reporte recibido con éxito! La dirección municipal dará seguimiento.';
+        formStatus.textContent = '¡Reporte recibido con éxito! La dirección correspondiente dará seguimiento.';
         formStatus.classList.add('success');
         contactForm.reset();
       } else {
@@ -56,11 +57,11 @@ if (contactForm) {
         formStatus.classList.add('error');
       }
     } catch (error) {
-      formStatus.textContent = 'Error de conexión. Puede comunicarse directamente a los teléfonos del palacio.';
+      formStatus.textContent = 'Error de conexión. Puede comunicarse a los teléfonos del palacio.';
       formStatus.classList.add('error');
     } finally {
       submitBtn.disabled = false;
-      submitBtn.textContent = 'Enviar Reporte';
+      submitBtn.textContent = 'Enviar Reporte Ciudadano';
     }
   });
 }
