@@ -1,4 +1,4 @@
-// --- 1. Modo Oscuro / Claro Institucional ---
+// --- 1. Control de Modo Oscuro / Modo Claro ---
 const themeToggleBtn = document.getElementById('theme-toggle');
 const savedTheme = localStorage.getItem('theme');
 
@@ -22,7 +22,7 @@ themeToggleBtn.addEventListener('click', () => {
   }
 });
 
-// --- 2. Formulario de Atención Ciudadana (AJAX / Fetch) ---
+// --- 2. Envío Asíncrono del Reporte Ciudadano (Formspree) ---
 const contactForm = document.getElementById('contact-form');
 const formStatus = document.getElementById('form-status');
 const submitBtn = document.getElementById('form-submit-btn');
@@ -45,7 +45,7 @@ if (contactForm) {
       });
 
       if (response.ok) {
-        formStatus.textContent = '¡Reporte recibido con éxito! La dirección correspondiente dará seguimiento.';
+        formStatus.textContent = '¡Reporte recibido con éxito! La dirección municipal dará seguimiento.';
         formStatus.classList.add('success');
         contactForm.reset();
       } else {
@@ -56,11 +56,11 @@ if (contactForm) {
         formStatus.classList.add('error');
       }
     } catch (error) {
-      formStatus.textContent = 'Error de conexión. Intente comunicarse vía telefónica.';
+      formStatus.textContent = 'Error de conexión. Puede comunicarse directamente a los teléfonos del palacio.';
       formStatus.classList.add('error');
     } finally {
       submitBtn.disabled = false;
-      submitBtn.textContent = 'Enviar Reporte Ciudadano';
+      submitBtn.textContent = 'Enviar Reporte';
     }
   });
 }
